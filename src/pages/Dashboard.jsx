@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import { useNavigate } from 'react-router-dom';
@@ -11,17 +11,21 @@ import {
   selectWallet,
 } from '../redux/auth/authSlice';
 import Wallet from '../components/Wallet.jsx';
+import { getmyVirtualAccount } from '../redux/payment/paymentSlice';
 
 const Dashboard = () => {
   const user = useSelector(selectUser);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const wallet = useSelector(selectWallet);
   const isLogin = useSelector(selectIsLoggedIn);
   useEffect(() => {
     if (!isLogin) {
       navigate('/login');
     }
+    dispatch(getmyVirtualAccount(user.userId));
   }, []);
+
   return (
     <>
       <Navbar />

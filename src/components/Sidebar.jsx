@@ -18,27 +18,27 @@ const sidebarMenu = [
   {
     name: 'View Wallet Transactions',
     icon: AiFillMail,
-    to: '/wallet-transactions',
+    to: '/dashboard',
   },
   {
     name: 'Users',
     icon: AiOutlineUser,
-    to: '/users',
+    to: '/dashboard',
   },
   {
     name: 'Bank Account',
     icon: AiFillShopping,
-    to: '/add-bank-account',
+    to: '/dashboard',
   },
   {
     name: 'Payment Transactions',
     icon: AiFillShopping,
-    to: '/create-payment-link',
+    to: '/dashboard',
   },
   {
-    name: 'View Cash Out',
+    name: 'View Widthrawals',
     icon: AiFillMail,
-    to: '/view-cashout',
+    to: '/dashboard',
   },
 ];
 

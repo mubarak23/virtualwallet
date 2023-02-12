@@ -10,10 +10,7 @@ import {
   selectToken,
   selectUser,
 } from '../redux/auth/authSlice';
-import {
-  selectVirtualAccount,
-  getmyVirtualAccount,
-} from '../redux/payment/paymentSlice';
+import { getmyVirtualAccount } from '../redux/payment/paymentSlice';
 // import { getVirtualAccount } from '../redux/payment/paymentService';
 
 const VirtualAccount = () => {
