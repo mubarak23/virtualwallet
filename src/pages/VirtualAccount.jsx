@@ -27,6 +27,7 @@ const VirtualAccount = () => {
   const user = useSelector(selectUser);
 
   useEffect(() => {
+    console.log('Did we reach here');
     if (isLogin) {
       dispatch(getmyVirtualAccount(user.userId));
     }
@@ -34,6 +35,9 @@ const VirtualAccount = () => {
       console.log(message);
     }
   }, [dispatch, message, isError, isLogin, token, user]);
+  if (isLoading) {
+    <h3>Fetching Account Details</h3>;
+  }
   return (
     <div>
       <Navbar />

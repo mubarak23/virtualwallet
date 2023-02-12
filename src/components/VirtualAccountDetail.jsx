@@ -12,7 +12,10 @@ import {
   Stack,
 } from '@chakra-ui/react';
 
-const VirtualAccountDetail = ({ virtualAccount }) => {
+const VirtualAccountDetail = ({ virtualAccount, isLoading }) => {
+  if (isLoading) {
+    return <h3>Loading Account Detaila </h3>;
+  }
   return (
     <div>
       <Card>

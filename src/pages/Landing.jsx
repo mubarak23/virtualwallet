@@ -10,8 +10,8 @@ export default function Landing() {
       <Navbar />
       <LandingLayout>
         <Hero
-          title='Go CashLess with PayMe Link'
-          subtitle='Your Everyday Essential For Collecting Payment for Your Business'
+          title='Go CashLess with Virtual Wallet'
+          subtitle='Your Everyday Essential For Making Payment'
           image='https://source.unsplash.com/collection/404339/800x600'
           ctaText='Create Your Account Now'
           ctaLink='/signup'

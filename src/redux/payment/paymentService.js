@@ -1,14 +1,15 @@
 import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 export const BACKEND_URL =
-  process.env.BACKEND_URL || 'http://localhost:3002/v1';
+  process.env.BACKEND_URL || 'https://demo-wallet.onrender.com/v1';
 
 export const getVirtualAccount = async (userId) => {
   try {
     const token = localStorage.getItem('token');
-
+    console.log('did we reach here ');
+    console.log(userId);
+    console.log(token);
     const response = await axios.get(
       `${BACKEND_URL}/api/payment/virtual-account/${userId}`,
       {

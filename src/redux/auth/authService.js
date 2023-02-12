@@ -2,8 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-export const BACKEND_URL =
-  process.env.BACKEND_URL || 'http://localhost:3002/v1';
+export const BACKEND_URL = 'https://demo-wallet.onrender.com/v1/api/';
 
 export const validateEmail = (email) => {
   return email.match(
@@ -14,15 +13,14 @@ export const validateEmail = (email) => {
 export const registerUser = async (userRegisterData) => {
   try {
     const response = await axios.post(
-      `${BACKEND_URL}/api/users/signup`,
+      `${BACKEND_URL}users/signup`,
       userRegisterData
     );
-    //  if (response.status === 201) {
+
     toast.success('User Registered successfully, Proceed to login');
     console.log(response);
     console.log(response.data);
     return response.data;
-    //  }
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -36,7 +34,7 @@ export const loginUser = async (userLoginData) => {
   try {
     console.log('Did we reach here');
     const response = await axios.post(
-      `${BACKEND_URL}/api/users/login`,
+      `${BACKEND_URL}users/login`,
       userLoginData
     );
     toast.success('User Login successfully');
@@ -53,7 +51,7 @@ export const loginUser = async (userLoginData) => {
 
 export const logoutUser = async () => {
   try {
-    const logout = await axios.get(`http://localhost:3002/v1/api/users/logout`);
+    const logout = await axios.get(`${BACKEND_URL}users/logout`);
     toast.success('Logout Successfully');
     return logout;
   } catch (error) {
