@@ -14,7 +14,7 @@ export default function Landing() {
           subtitle='Your Everyday Essential For Making Payment'
           image='https://source.unsplash.com/collection/404339/800x600'
           ctaText='Create Your Account Now'
-          ctaLink='/signup'
+          ctaLink='/register'
         />
       </LandingLayout>
     </div>

@@ -30,6 +30,7 @@ const Navbar = () => {
     }
   };
 
+  console.log(user);
   return (
     <Flex p='4'>
       <Box>
