@@ -8,6 +8,7 @@ import {
   CardBody,
   CardFooter,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Wallet = ({ wallet }) => {
   return (
@@ -20,12 +21,16 @@ const Wallet = ({ wallet }) => {
           <Text fontSize={35}>N{wallet.walletBalanceMinor / 100}</Text>
         </CardBody>
         <CardFooter>
-          <Button colorScheme='blue' marginLeft={10}>
-            View Transactions
-          </Button>
-          <Button colorScheme='blue' marginLeft={10}>
-            Fund Wallet
-          </Button>
+          <Link to={'/transactions'}>
+            <Button colorScheme='blue' marginLeft={10}>
+              View Transactions
+            </Button>
+          </Link>
+          <Link to={'/virtual-account'}>
+            <Button colorScheme='blue' marginLeft={10}>
+              Fund Wallet
+            </Button>
+          </Link>
         </CardFooter>
       </Card>
     </div>
