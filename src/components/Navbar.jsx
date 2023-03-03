@@ -15,14 +15,11 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const logout = () => {
-    const isLogout = localStorage.removeItem('token');
-    console.log(isLogout);
-    if (isLogout) {
-      dispatch(SET_LOGIN(false));
-      dispatch(SET_TOKEN(''));
-      dispatch(SET_USER(''));
-      navigate('/login');
-    }
+    localStorage.removeItem('token');
+    dispatch(SET_LOGIN(false));
+    dispatch(SET_TOKEN(''));
+    dispatch(SET_USER(''));
+    navigate('/login');
   };
 
   console.log(user);
