@@ -14,19 +14,14 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const logout = async () => {
-    try {
-      localStorage.removeItem('token');
-      const isLogout = await logoutUser();
-      console.log(isLogout);
-      if (isLogout) {
-        dispatch(SET_LOGIN(false));
-        dispatch(SET_TOKEN(''));
-        dispatch(SET_USER(''));
-        navigate('/login');
-      }
-    } catch (error) {
-      console.log(error);
+  const logout = () => {
+    const isLogout = localStorage.removeItem('token');
+    console.log(isLogout);
+    if (isLogout) {
+      dispatch(SET_LOGIN(false));
+      dispatch(SET_TOKEN(''));
+      dispatch(SET_USER(''));
+      navigate('/login');
     }
   };
 
