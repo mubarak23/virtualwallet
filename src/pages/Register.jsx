@@ -33,13 +33,13 @@ const Register = () => {
     setIsLoading(true);
     try {
       const data = await registerUser(userLogin);
-
-      if (data.user) {
+      console.log(data.data);
+      if (data.data.user) {
         console.log('User registration was successful');
         dispatch(SET_LOGIN(true));
-        dispatch(SET_TOKEN(data.token));
-        dispatch(SET_USER(data.user));
-        dispatch(data.wallet);
+        dispatch(SET_TOKEN(data.data.token.token));
+        dispatch(SET_USER(data.data.user));
+        dispatch(data.data.wallet);
         navigate('/dashboard');
         setIsLoading(false);
       }
@@ -60,7 +60,6 @@ const Register = () => {
             emailAddress: '',
             password: '',
             phoneNumber: '',
-            role: 'NORMAL',
           }}
           onSubmit={(values) => {
             console.log(values);

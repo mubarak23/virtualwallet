@@ -17,7 +17,7 @@ const Wallet = ({ wallet }) => {
           <Heading size='md'>Wallet Balance</Heading>
         </CardHeader>
         <CardBody>
-          <Text fontSize={35}>N{wallet.walletBalanceMinor}</Text>
+          <Text fontSize={35}>N{wallet.walletBalanceMinor / 100}</Text>
         </CardBody>
         <CardFooter>
           <Button colorScheme='blue' marginLeft={10}>

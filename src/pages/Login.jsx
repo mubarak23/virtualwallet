@@ -34,14 +34,14 @@ const Login = () => {
       const data = await loginUser(userLogin);
 
       console.log(data);
-      console.log(data.user);
+      console.log(data.data);
 
       console.log('After dispatch');
-      if (data.token && data.user) {
+      if (data.data.token && data.data.user) {
         dispatch(SET_LOGIN(true));
-        dispatch(SET_TOKEN(data.token));
-        dispatch(SET_USER(data.user));
-        dispatch(SET_WALLET(data.wallet));
+        dispatch(SET_TOKEN(data.data.token));
+        dispatch(SET_USER(data.data.user));
+        dispatch(SET_WALLET(data.data.wallet));
         navigate('/dashboard');
         setIsLoading(false);
       }

@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { toast, isLoading } from 'react-toastify';
-import { getVirtualAccount } from './paymentService';
+import { getVirtualAccount, getWalletTransaction } from './paymentService';
 
 const initialState = {
   myVirtualAccount: null,
+  transactions: null,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -15,6 +16,24 @@ export const getmyVirtualAccount = createAsyncThunk(
   async (userId, thunkAPI) => {
     try {
       return await getVirtualAccount(userId);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      console.log(message);
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+export const getMyWalletTransaction = createAsyncThunk(
+  'wallet/transaction',
+  async (pageNumber, thunkAPI) => {
+    try {
+      return await getWalletTransaction(pageNumber);
     } catch (error) {
       const message =
         (error.response &&
@@ -48,6 +67,21 @@ const paymentSlice = createSlice({
         state.myVirtualAccount = action.payload;
       })
       .addCase(getmyVirtualAccount.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        toast.error(action.payload);
+      })
+      .addCase(getMyWalletTransaction.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getMyWalletTransaction.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+        state.transactions = action.payload;
+      })
+      .addCase(getMyWalletTransaction.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;

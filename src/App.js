@@ -10,6 +10,7 @@ import CreatePaymentLink from './pages/CreatePaymentLink';
 import Register from './pages/Register';
 import Users from './pages/Users';
 import VirtualAccount from './pages/VirtualAccount';
+import Transactions from './pages/Transactions';
 
 function App() {
   // 👇️ with React router
@@ -28,6 +29,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/virtual-account' element={<VirtualAccount />} />
+          <Route path='/transactions' element={<Transactions />} />
           <Route path='/paymentlinks' element={<PaymentLinks />} />
           <Route path='/users' element={<Users />} />
           <Route path='/create-payment-link' element={<CreatePaymentLink />} />

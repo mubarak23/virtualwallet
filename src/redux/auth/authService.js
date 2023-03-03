@@ -2,7 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-export const BACKEND_URL = 'https://demo-wallet.onrender.com/v1/api/';
+export const BACKEND_URL = 'https://wallet-service-ddmd.onrender.com/api/';
+// 'http://localhost:3200/api/'; // 'https://demo-wallet.onrender.com/v1/api/';
 
 export const validateEmail = (email) => {
   return email.match(
@@ -13,7 +14,7 @@ export const validateEmail = (email) => {
 export const registerUser = async (userRegisterData) => {
   try {
     const response = await axios.post(
-      `${BACKEND_URL}users/signup`,
+      `${BACKEND_URL}auth/users/signup`,
       userRegisterData
     );
 
@@ -34,7 +35,7 @@ export const loginUser = async (userLoginData) => {
   try {
     console.log('Did we reach here');
     const response = await axios.post(
-      `${BACKEND_URL}users/login`,
+      `${BACKEND_URL}auth/users/signin`,
       userLoginData
     );
     toast.success('User Login successfully');

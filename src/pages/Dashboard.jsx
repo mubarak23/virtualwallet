@@ -11,7 +11,10 @@ import {
   selectWallet,
 } from '../redux/auth/authSlice';
 import Wallet from '../components/Wallet.jsx';
-import { getmyVirtualAccount } from '../redux/payment/paymentSlice';
+import {
+  getmyVirtualAccount,
+  getMyWalletTransaction,
+} from '../redux/payment/paymentSlice';
 
 const Dashboard = () => {
   const user = useSelector(selectUser);
@@ -24,6 +27,7 @@ const Dashboard = () => {
       navigate('/login');
     }
     dispatch(getmyVirtualAccount(user.userId));
+    dispatch(getMyWalletTransaction(1));
   }, []);
 
   return (

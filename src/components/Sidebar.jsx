@@ -18,7 +18,7 @@ const sidebarMenu = [
   {
     name: 'View Wallet Transactions',
     icon: AiFillMail,
-    to: '/dashboard',
+    to: '/transactions',
   },
   {
     name: 'Users',
