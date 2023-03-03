@@ -54,10 +54,6 @@ const Transactions = () => {
                   Wallet Transactions
                 </Heading>
               </Box>
-              <Spacer />
-              <ButtonGroup gap='1'>
-                <Button colorScheme='teal'>Create a Payment link</Button>
-              </ButtonGroup>
             </Flex>
             <hr />
             <TableContainer>
