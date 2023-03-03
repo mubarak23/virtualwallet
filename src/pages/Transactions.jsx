@@ -75,7 +75,7 @@ const Transactions = () => {
                       <Td>{item.paidStatus}</Td>
                       <Td>N{item.amountMajor}</Td>
                       <Td>N{item.walletBalanceMajorBefore}</Td>
-                      <Td>{item.walletBalanceMajorAfter}</Td>
+                      <Td>N{item.walletBalanceMajorAfter}</Td>
                       <Td>
                         {moment(item.createdAt).format(
                           'MMMM Do YYYY, h:mm:ss a'
